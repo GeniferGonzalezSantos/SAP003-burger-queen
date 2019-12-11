@@ -1,10 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {db} from './firebase';
+
 
 function App() {
-  return (
-    <div className="App">
+  const item = db.doc('Menu/Item')
+ /*  console.log(item); */
+  item.where('', '==', true)
+    .get()
+    .then((snap) => {
+      snap.forEach(element => {
+        console.log(element);
+        
+      });
+    }); 
+    
+    return (
+      <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -15,12 +28,13 @@ function App() {
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          >
           Learn React
         </a>
       </header>
     </div>
   );
 }
+
 
 export default App;
