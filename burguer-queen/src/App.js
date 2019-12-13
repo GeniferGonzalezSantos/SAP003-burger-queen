@@ -1,18 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+/* import logo from './logo.svg'; */
 import './App.css';
 import {db} from './firebase.js';
 
-
 function App() {
+  const [dados, setDados] = useState('');
    db.collection('Menu')
   .get()
   .then((querySnapshot) => {
-    querySnapshot.forEach(doc => console.log(doc.data()) )
-   
+    const banana = querySnapshot.forEach(doc => { 
+      (doc.data()) 
+    })
+    setDados(banana)
   })
     return (
-      <div className="App">
+      <div>
+        <button onClick={() => setDados}> dados</button>
+        <div>{dados.map((lala) => 
+      <div key={lala.id}>{lala.price}</div>
+        )}
+        </div>
+        </div> 
+
+
+        /* <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -27,7 +38,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </div> */
   );
     }
 
