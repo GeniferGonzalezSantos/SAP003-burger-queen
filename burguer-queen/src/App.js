@@ -1,21 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {db} from './firebase';
+import {db} from './firebase.js';
 
 
 function App() {
-  const item = db.doc('Menu/Item')
- /*  console.log(item); */
-  item.where('', '==', true)
-    .get()
-    .then((snap) => {
-      snap.forEach(element => {
-        console.log(element);
-        
-      });
-    }); 
-    
+   db.collection('Menu')
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach(doc => console.log(doc.data()) )
+   
+  })
     return (
       <div className="App">
       <header className="App-header">
@@ -34,7 +29,7 @@ function App() {
       </header>
     </div>
   );
-}
+    }
 
 
 export default App;
