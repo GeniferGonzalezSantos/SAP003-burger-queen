@@ -1,9 +1,21 @@
 import React from 'react';
-import './card.css';
+import { StyleSheet, css } from 'aphrodite'
 
 const Card = (props) => (
     <>
     <p className='card'>{props.children}</p>
     </>
 )
- export default Card;
+
+StyleSheet.create({
+    Card: {
+      backgroundColor: '#ffe0b2',
+      margin: '2vh',
+      height: '15vh',
+      width: '40vh',
+      borderRadius: 5,
+      border: 'none'
+    }
+});
+
+export default Card;
