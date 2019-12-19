@@ -11,6 +11,7 @@ import Button from './componentes/Button/button';
 function App() {
 
   const [dados, setDados] = useState([]);
+  const [item, setItem] = useState([])
 
   useEffect(() => {
     db.collection('Menu')
@@ -24,29 +25,31 @@ function App() {
         setDados(banana)
       });
   }, [0])
-  console.log(dados);
 
- /*  const filterBreakfast = (event) => {
-  const btn = event.target.className;
-  const filter = (breakfast === true)? true:false; */
 
+  const filterBreakfast = (event) => {
+    const seiLa = event.target.id;
+    const showBreakfast = (seiLa === 'breakfast')? true: false;
+    const itens = dados.filter((lala) => lala.breakfast === showBreakfast)
+    return setItem(itens)
   }
+  console.log(item)
 
   return (
     <>
       <div key={'banana'}>
         <Button
-          name='btn'
-          onClick={ filterBreakfast}
-          children='enviar'
+          id='breakfast'
+          onClick={filterBreakfast}
+          children='breakfast'
         />
         <Button
-          name='btn'
-          onClick={ filterBreakfast}
-          children='enviar'
+          id='btn'
+          onClick={filterBreakfast}
+          children='resto do dia'
         />
       </div>
-      <div key={dados.id}>{dados.map((item) =>
+      <div key={dados.id}>{item.map((item) =>
 
         <Card key={item.id}>{item.name}
           <br></br>
@@ -58,6 +61,5 @@ function App() {
     </>
 
   )
-};
-
+}
 export default App;
