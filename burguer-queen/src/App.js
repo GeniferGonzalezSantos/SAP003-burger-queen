@@ -1,5 +1,5 @@
 import React from 'react';
-import FazerPedido from './components/Routers/Cliente'
+import FazerPedido from './Cliente'
 import {
   BrowserRouter as Router,
   Switch,
