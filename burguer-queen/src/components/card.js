@@ -5,7 +5,8 @@ const Card = (props) => (
     <>
     <section
     onClick={props.onClick}
-    className={css(styles.card)}>{props.children}</section>
+    className={css(styles.card)}
+    >{props.children}</section>
     </>
 )
 
@@ -13,28 +14,19 @@ const styles = StyleSheet.create({
     card : {
        margin: '2%',
        padding: '2%',
-       height: '25%',
-       width:'15%',
-       border: '2px outset',
+       height: '15%',
+       width:'20%',
+       border: '2px solid',
        borderRadius:'10%',
        borderColor: '#00B383',
        display:'flex',
        alignItems:'center',
        justifyContent:'space-around',
-       marginLeft:'3%'
+       fontFamily: 'Ubuntu, sans-serif',
+       fontSize:'1em',
        
+   
     },
-
-    focus: {
-      ':focus': { 
-        height: '120px',
-        transition:'height 1s'
-      },
-
-    div: {
-      flexDirection: 'column'
-      }
-  }
 });
 
 export default Card;

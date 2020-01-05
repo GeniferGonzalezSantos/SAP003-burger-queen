@@ -49,16 +49,16 @@ function FazerPedido() {
           />
         </div>
       </main>
-      <article>
-        <div key={dados.id}>
+      <article >
+        <div key={dados.id} className='card-container'>
           {item.map((item) =>
             <Card
               key={item.id}
               onClick={() => console.log(item)}>
-              <div>
+              <div className='card'>
                 {item.name}
               </div>
-              <div>
+              <div className='card'>
                 R${item.price}
               </div>
             </Card>
@@ -72,17 +72,16 @@ function FazerPedido() {
               placeholder='Cliente'
               onChange={(event) =>
                 setCliente(event.target.value)} />
-            <p className='p'>{cliente}</p>
-          </div>
-          <div className='input'>
             <Input
               placeholder='Mesa'
               onChange={(event) =>
                 setTable(event.target.value)} />
+            <p className='p'>{cliente}</p>
             <p className='p'>{table}</p>
-          </div>
-          <Input 
+            <Input 
           type='submit'/>
+          </div>
+         
         </form>
       </aside>
     </>

@@ -23,7 +23,7 @@ function App() {
               <Link to="/cozinha" className={css(styles.a)}>Cozinha</Link>
               </li>
             </ul>
-            <span><img src="/imagens/logo.png" alt=""/></span>
+          {/*   <span><img src="/imagens/logo.png" alt=""/></span> */}
           </nav>
           <Switch>
             <Route path="/cozinha">
@@ -52,7 +52,9 @@ const styles = StyleSheet.create({
     margin:'0',
     display:'flex',
     flexDirection:'row',
-    alignItems:'space-around'
+    alignItems:'space-around',
+    fontFamily:'Ubuntu, sans-serif',
+   
   },
   
   li: {

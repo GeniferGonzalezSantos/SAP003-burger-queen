@@ -3,32 +3,45 @@ body {
     background-color: #ff9a68; 
   }
   
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1px;
+    width: 75%;
+    position: fixed;
+     
+  }
+
   .aside {
     width: 95%;
     box-sizing: border-box;
     margin: 55% 2% 2% 2%;
- 
+    
   }
 
   .container-aside {
     border: none;
     border-radius: 10px;
-    padding: 5% 5% 35% 5%;
+    padding: 5% 5% 30% 5%;
     background-color: #c5350d;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
     flex-direction: column;
     
   }
 
   .input {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 2%;
+    padding: initial;
   }
 
   .p {
-    margin-left: 20px; 
+    margin: 5px; 
     font-size: 1.5em;
   }
 
