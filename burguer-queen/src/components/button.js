@@ -11,24 +11,18 @@ const Button = (props) => (
 const styles = StyleSheet.create({
     btn : {
        margin: '2%',
-       padding:'2%',
-        border: '1px solid',
-       borderRadius:'5%',
+       padding: '5px',
+       border: '1px solid',
+       borderRadius:'5px',
        borderColor: '#00B383',
        display:'flex',
        alignItems:'center', 
        justifyContent:'space-around',
        fontSize: '1em',
-       
-
-      
 
     },
 
-    div: {
-        flexDirection: 'column'
-
-      }
+   
 });
 
  export default Button;
