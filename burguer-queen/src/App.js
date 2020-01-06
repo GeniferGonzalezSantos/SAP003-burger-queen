@@ -1,5 +1,5 @@
 import React from 'react';
-import FazerPedido from './components/Clientes/Cliente'
+import TakeOrder from './components/Clientes/Cliente'
 import { StyleSheet, css } from 'aphrodite';
 import { reset } from 'aphrodite';
 import logo from './imagens/logo.png';
@@ -9,6 +9,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Button from './components/button';
 
 
 
@@ -33,7 +34,7 @@ function App() {
             <div>peraí</div>
           </Route>
           <Route path="/">
-            <FazerPedido />
+            <TakeOrder/>
           </Route>
         </Switch>
       </Router>
@@ -44,7 +45,7 @@ function App() {
 
 const styles = StyleSheet.create({
   nav: {
-    width: '1024px',
+    width: '100%',
     backgroundColor: '#c5350d',
     height: '8vw',
     display: 'flex',
@@ -80,12 +81,14 @@ const styles = StyleSheet.create({
     display:'flex',
     alignItems:'center',
     justifyContent:'center',
-    margin:'5px 200px ',
     width: '100px',
     height: '100px',
+    margin:'1%',
     borderRadius: '50%',
   }
 
 });
+
 reset();
+
 export default App;

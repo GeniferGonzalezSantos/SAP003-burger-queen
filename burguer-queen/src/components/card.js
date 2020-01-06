@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
        height: '15%',
        width:'20%',
        border: 'solid',
-       borderRadius:'10px',
+       borderRadius:'5px',
        borderColor: '#00B383',
        display:'flex',
        alignItems:'center',

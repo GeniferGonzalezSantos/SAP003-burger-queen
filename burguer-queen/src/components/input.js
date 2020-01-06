@@ -6,8 +6,10 @@ const Input = (props) => (
    <>
       <input
          type={props.type}
-         onChange={props.onChange}
-         className={css(styles.input)} placeholder={props.placeholder}></input>
+         onClick={props.onClick}
+         className={css(styles.input)} 
+         placeholder={props.placeholder} 
+         title={props.title}></input>
    </>
 )
 

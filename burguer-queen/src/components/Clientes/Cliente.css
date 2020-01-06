@@ -9,7 +9,7 @@ body {
     align-items: center;
     justify-content: space-around;
     margin: 1px;
-    width: 75%;
+    height: 2%;
     position: fixed;
      
   }
@@ -17,14 +17,14 @@ body {
   .aside {
     width: 95%;
     box-sizing: border-box;
-    margin: 55% 2% 2% 2%;
+    margin: 35% 2% 2% 2%;
     
   }
 
   .container-aside {
     border: none;
     border-radius: 10px;
-    padding: 5% 5% 30% 5%;
+    width: 100%;
     background-color: #c5350d;
     display: flex;
     flex-direction: column;

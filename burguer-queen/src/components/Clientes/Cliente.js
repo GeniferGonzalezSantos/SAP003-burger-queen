@@ -1,50 +1,76 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase.js';
+import firebase from 'firebase/app';
 import Card from '../card';
 import Button from '../button';
 import Input from '../input';
 import './Cliente.css';
 
-function FazerPedido() {
+function TakeOrder() {
   const [dados, setDados] = useState([]);
   const [item, setItem] = useState([]);
   const [table, setTable] = useState('');
   const [cliente, setCliente] = useState('');
+  const [order, setOrder] = useState([]);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     db.collection('Menu')
       .get()
       .then((snapshot) => {
-        const banana = snapshot.docs.map((doc) => ({
+        const getMenu = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data()
         }))
         /* (console.log(doc.data())) */
-        setDados(banana)
+        setDados(getMenu)
       });
   }, [0])
 
 
-  const filterBreakfast = (event) => {
-    const seiLa = event.target.id;
-    const showBreakfast = (seiLa === 'breakfast') ? true : false;
-    const itens = dados.filter((lala) => lala.breakfast === showBreakfast)
-    return setItem(itens)
+  const filterMenu = (event) => {
+    const idItem = event.target.id;
+    const showMenu = (idItem === 'breakfast') ? true : false;
+    const filterItens = dados.filter((itensMenu) => itensMenu.breakfast === showMenu)
+    return setItem(filterItens)
   }
-  console.log(item)
+  /* console.log(item); */
+
+  const showOrder = (item) => {
+    setOrder([...order, item]);
+    setCounter(counter + item.price);
+  }
+
+  const sendOrder = () => {
+    db.collection('Pedidos')
+      .add({
+        clientName: cliente,
+        table: table,
+        order: order,
+        /*      totalBill: totalBill,*/
+        status: 'Pendente',
+        time: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(() => {
+        setOrder([]);
+        setTable(['']);
+        setCliente(['']);
+      })
+    console.log('Enviado')
+  }
 
   return (
     <>
       <main>
-        <div key={'banana'} className='btn'>
+        <div key={'itensMenu'} className='btn'>
           <Button
             id='breakfast'
-            onClick={filterBreakfast}
+            onClick={filterMenu}
             children='Manhã'
           />
           <Button
             id='btn'
-            onClick={filterBreakfast}
+            onClick={filterMenu}
             children='Tarde'
           />
         </div>
@@ -54,7 +80,7 @@ function FazerPedido() {
           {item.map((item) =>
             <Card
               key={item.id}
-              onClick={() => console.log(item)}>
+              onClick={() => showOrder(item)}>
               <div className='card'>
                 {item.name}
               </div>
@@ -68,6 +94,14 @@ function FazerPedido() {
       <aside className='aside'>
         <form className='container-aside'>
           <div className='input'>
+            <div >
+          {order.map(item => <p key={item.id}>
+              {item.name}
+              R${item.price}
+            </p>
+              )}
+             <p> Total: R$  {counter}  </p>
+             </div>
             <Input
               placeholder='Cliente'
               onChange={(event) =>
@@ -78,13 +112,14 @@ function FazerPedido() {
                 setTable(event.target.value)} />
             <p className='p'>{cliente}</p>
             <p className='p'>{table}</p>
-            <Input 
-          type='submit'/>
-          </div>
-         
+            <Input
+              type='button' children='Enviar' onClick={sendOrder} />
+          </div>  
         </form>
       </aside>
     </>
   )
 }
-export default FazerPedido;
+
+
+export default TakeOrder;
