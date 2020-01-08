@@ -28,7 +28,6 @@ function TakeOrder() {
       });
   }, [0])
 
-
   const filterMenu = (event) => {
     const idItem = event.target.id;
     //console.log(idItem);
@@ -62,6 +61,10 @@ function TakeOrder() {
       setCounter(delPrice);
     }
   }
+   /*  setCounter(counter + item.price);  
+    const addItem = (item.id * '') ? true : false;
+    const multiplication = item.price * addItem;
+    return console.log(setCounter + multiplication); */
 
   const sendOrder = () => {
     db.collection('Pedidos')
