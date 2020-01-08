@@ -22,11 +22,10 @@ function TakeOrder() {
           id: doc.id,
           ...doc.data()
         }))
-        /* (console.log(doc.data())) */
+        //console.log(getMenu)
         setDados(getMenu)
       });
   }, [0])
-
 
   const filterMenu = (event) => {
     const idItem = event.target.id;
@@ -34,12 +33,16 @@ function TakeOrder() {
     const filterItens = dados.filter((itensMenu) => itensMenu.breakfast === showMenu)
     return setItem(filterItens)
   }
-  /* console.log(item); */
+  console.log(item); 
 
   const showOrder = (item) => {
     setOrder([...order, item]);
-    setCounter(counter + item.price);
+  
   }
+   /*  setCounter(counter + item.price);  
+    const addItem = (item.id * '') ? true : false;
+    const multiplication = item.price * addItem;
+    return console.log(setCounter + multiplication); */
 
   const sendOrder = () => {
     db.collection('Pedidos')
@@ -48,13 +51,14 @@ function TakeOrder() {
         table: table,
         order: order,
         /*      totalBill: totalBill,*/
-        status: 'Pendente',
+        status: '',
         time: firebase.firestore.FieldValue.serverTimestamp()
       })
       .then(() => {
         setOrder([]);
         setTable(['']);
         setCliente(['']);
+        setCounter(0);
       })
     console.log('Enviado')
   }
@@ -94,7 +98,7 @@ function TakeOrder() {
       <aside className='aside'>
         <form className='container-aside'>
           <div className='input'>
-            <div >
+            <div className='showOrder'>
           {order.map(item => <p key={item.id}>
               {item.name}
               R${item.price}
@@ -112,8 +116,10 @@ function TakeOrder() {
                 setTable(event.target.value)} />
             <p className='p'>{cliente}</p>
             <p className='p'>{table}</p>
-            <Input
-              type='button' children='Enviar' onClick={sendOrder} />
+            <Button
+              type='button' //só funciona com button
+              children='Enviar' 
+              onClick={sendOrder} />
           </div>  
         </form>
       </aside>
