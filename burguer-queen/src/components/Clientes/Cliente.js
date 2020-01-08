@@ -13,6 +13,7 @@ function TakeOrder() {
   const [cliente, setCliente] = useState('');
   const [order, setOrder] = useState([]);
   const [counter, setCounter] = useState(0);
+ 
 
   useEffect(() => {
     db.collection('Menu')
@@ -22,7 +23,7 @@ function TakeOrder() {
           id: doc.id,
           ...doc.data()
         }))
-        /* (console.log(doc.data())) */
+        // (console.log(doc.data())) 
         setDados(getMenu)
       });
   }, [0])
@@ -30,15 +31,36 @@ function TakeOrder() {
 
   const filterMenu = (event) => {
     const idItem = event.target.id;
+    //console.log(idItem);
     const showMenu = (idItem === 'breakfast') ? true : false;
     const filterItens = dados.filter((itensMenu) => itensMenu.breakfast === showMenu)
     return setItem(filterItens)
   }
-  /* console.log(item); */
+  //console.log(item); 
 
   const showOrder = (item) => {
-    setOrder([...order, item]);
-    setCounter(counter + item.price);
+    if (order.includes(item)) {
+      item.count++;
+      setCounter(+(counter + item.price * item.count));
+    } else {
+      item.count = 1;
+      setOrder([...order, item]);
+    }
+    setCounter(+(counter + item.price));
+  }
+
+  const deleteItem = (item) => {
+    if (item.count === 1) {
+      const delPrice = counter - item.price;
+      const itemIndex = order.indexOf(item);
+      order.splice(itemIndex, 1);
+      setOrder([...order]);
+      setCounter(delPrice);
+    } else {
+      item.count--;
+      const delPrice = counter - item.price;
+      setCounter(delPrice);
+    }
   }
 
   const sendOrder = () => {
@@ -47,7 +69,7 @@ function TakeOrder() {
         clientName: cliente,
         table: table,
         order: order,
-        /*      totalBill: totalBill,*/
+        //bill: bill,
         status: 'Pendente',
         time: firebase.firestore.FieldValue.serverTimestamp()
       })
@@ -55,9 +77,11 @@ function TakeOrder() {
         setOrder([]);
         setTable(['']);
         setCliente(['']);
+        setCounter(0);
       })
     console.log('Enviado')
   }
+
 
   return (
     <>
@@ -87,6 +111,14 @@ function TakeOrder() {
               <div className='card'>
                 R${item.price}
               </div>
+              <div>
+                {item.options ?
+                 (item.options.map(options =>
+                  <p>{options}</p>))
+                : null 
+                }
+                  
+              </div>
             </Card>
           )}
         </div>
@@ -95,13 +127,14 @@ function TakeOrder() {
         <form className='container-aside'>
           <div className='input'>
             <div >
-          {order.map(item => <p key={item.id}>
-              {item.name}
-              R${item.price}
-            </p>
+              {order.map(item => <p key={item.id}>
+                {item.count}x{item.name}
+                R${item.price}
+                <Button onClick={(e) => (e.preventDefault(), deleteItem(item))} children={'X'} />
+              </p>
               )}
-             <p> Total: R$  {counter}  </p>
-             </div>
+              <p> Total: R$  {counter}  </p>
+            </div>
             <Input
               placeholder='Cliente'
               onChange={(event) =>
@@ -112,9 +145,9 @@ function TakeOrder() {
                 setTable(event.target.value)} />
             <p className='p'>{cliente}</p>
             <p className='p'>{table}</p>
-            <Input
+            <Button
               type='button' children='Enviar' onClick={sendOrder} />
-          </div>  
+          </div>
         </form>
       </aside>
     </>

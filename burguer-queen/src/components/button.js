@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
 const Button = (props) => (
-        <button onClick={props.onClick} className={css(styles.btn)}>{props.children}</button>
+        <button onClick={props.onClick} className={css(styles.btn)} id={props.id}>{props.children}</button>
 )
 
 const styles = StyleSheet.create({
