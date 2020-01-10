@@ -13,7 +13,9 @@ function TakeOrder() {
   const [cliente, setCliente] = useState('');
   const [order, setOrder] = useState([]);
   const [counter, setCounter] = useState(0);
- 
+  const [extras, setExtras]= useState('');
+  const [options, setOptions] = useState('');
+
 
   useEffect(() => {
     db.collection('Menu')
@@ -61,10 +63,10 @@ function TakeOrder() {
       setCounter(delPrice);
     }
   }
-   /*  setCounter(counter + item.price);  
-    const addItem = (item.id * '') ? true : false;
-    const multiplication = item.price * addItem;
-    return console.log(setCounter + multiplication); */
+  /*  setCounter(counter + item.price);  
+   const addItem = (item.id * '') ? true : false;
+   const multiplication = item.price * addItem;
+   return console.log(setCounter + multiplication); */
 
   const sendOrder = () => {
     db.collection('Pedidos')
@@ -84,7 +86,6 @@ function TakeOrder() {
       })
     console.log('Enviado')
   }
-
 
   return (
     <>
@@ -115,13 +116,24 @@ function TakeOrder() {
                 R${item.price}
               </div>
               <div>
-                {item.options ?
-                 (item.options.map(options =>
-                  <p>{options}</p>))
-                : null 
-                }
-                  
+                <label>
+                  <input type='radio' value='options'>{item.options ?
+                    (item.options.map(options =>
+                      <p>{options}</p>))
+                    : null
+                  }
+                  </input>
+                </label>
               </div>
+              <label>
+                <div> <input type='rado' value='extras'>{item.extras ?
+                  (item.extras.map(extras =>
+                    <p>{extras}</p>))
+                  : null
+                }
+                </input>
+                </div>
+              </label>
             </Card>
           )}
         </div>
