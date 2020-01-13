@@ -3,6 +3,7 @@ import { db } from '../../firebase.js';
 import firebase from 'firebase/app';
 import Card from '../card';
 import Button from '../button';
+import Modal from '../modal';
 import Input from '../input';
 import './Cliente.css';
 
@@ -13,10 +14,9 @@ function TakeOrder() {
   const [cliente, setCliente] = useState('');
   const [order, setOrder] = useState([]);
   const [counter, setCounter] = useState(0);
+  const [modal, setModal] = useState({ status: false });
   const [options, setOptions] = useState('');
   const [extras, setExtras] = useState('');
-  /* const [modal, setModal] = useState({ status: false }); */
-
 
   useEffect(() => {
     db.collection('Menu')
@@ -88,10 +88,35 @@ function TakeOrder() {
     console.log('Enviado')
   }
 
-  const radioOnCick = e => {
-    e.persist();
-    setOptions(e.target.value);
-  };
+  const selectOptions = () => {
+    if (extras !== '') {
+      const upDateModal = {
+        ...modal.item,
+        price: modal.item.price + 1,
+        name: `${modal.item.name} ${options}`
+      }
+      showOrder(upDateModal);
+      setModal({ status: false });
+    } else {
+      const upDateModal = {
+        ...modal.item,
+        name: `${modal.item.name} ${options}`
+      }
+      showOrder(upDateModal);
+      setModal({ status: false });
+    }
+  }
+
+  const verifyOptions = (item) => {
+    if (item.options) {
+      setModal({ status: true, item: item })
+    } else {
+      showOrder(item);
+    }
+
+  }
+
+
 
 
   return (
@@ -115,27 +140,40 @@ function TakeOrder() {
           {item.map((item) =>
             <Card
               key={item.id}
-              onClick={() => showOrder(item)}>
+              onClick={() => verifyOptions(item)}
+            >
               <div className='card'>
                 {item.name}
               </div>
               <div className='card'>
                 R${item.price}
               </div>
-              <div>
-                <p>
-                  {item.options ?
-                    (item.options.map(options =>
-                      <label>{options}</label>))
-                    : null
-                  }
-                </p>
-                <input type="radio" onClick={radioOnCick}
-                  value={options}></input>
-              </div>
-              </Card>
+            </Card>
           )}
         </div>
+        {modal.status ? (
+          <section>
+            <div>
+              <h3>Opções</h3>
+              {modal.item.options.map((element, index) =>
+                <div key={index}>
+                  <Input type='radio' name='options' value={element} onClick={() => setOptions(element)} />
+                  <label>{element}</label>
+                </div>
+              )}
+            </div>
+            <div>
+              <h3>Extras</h3>
+              {modal.item.extras.map((element, index) =>
+                <div key={index}>
+                  <Input type='radio' name='extras' value={element} onClick={() => setExtras(element)} />
+                  <label>{element}</label>
+                </div>
+              )}
+              <Input type='button' onClick={() => selectOptions()} title="Enviar" />
+            </div>
+          </section>
+        ) : false}
       </article>
       <aside className='aside'>
         <form className='container-aside'>

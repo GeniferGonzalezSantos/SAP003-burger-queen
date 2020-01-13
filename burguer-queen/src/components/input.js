@@ -8,6 +8,7 @@ const Input = (props) => (
          type={props.type}
          onClick={props.onClick}
          className={css(styles.input)} 
+         name={props.name}
          placeholder={props.placeholder} 
          title={props.title}></input>
    </>
