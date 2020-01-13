@@ -3,6 +3,7 @@ import { db } from '../../firebase.js';
 import firebase from 'firebase/app';
 import Card from '../card';
 import Button from '../button';
+import Modal from '../modal';
 import Input from '../input';
 import './Cliente.css';
 
@@ -13,9 +14,8 @@ function TakeOrder() {
   const [cliente, setCliente] = useState('');
   const [order, setOrder] = useState([]);
   const [counter, setCounter] = useState(0);
-  const [extras, setExtras]= useState('');
-  const [options, setOptions] = useState('');
-
+  // const [extras, setExtras] = useState('');
+  // const [options, setOptions] = useState('');
 
   useEffect(() => {
     db.collection('Menu')
@@ -87,6 +87,30 @@ function TakeOrder() {
     console.log('Enviado')
   }
 
+  const modal = (item) => {
+    if (item.burguer === true){
+      (item.burguer.map( Modal =>
+        
+        <Modal>
+        {item.options ?
+          (item.options.map(options =>
+            <p>{options}</p>))
+            : null
+          }
+        {item.extras ?
+          (item.extras.map(extras =>
+            <p>{extras}</p>))
+            : null
+          } 
+      </Modal>
+      ))
+    }
+    else{
+      return false
+    }
+  }
+  console.log(item.burguer)
+
   return (
     <>
       <main>
@@ -108,32 +132,14 @@ function TakeOrder() {
           {item.map((item) =>
             <Card
               key={item.id}
-              onClick={() => showOrder(item)}>
+              onClick={() => showOrder(item)}
+             >
               <div className='card'>
                 {item.name}
               </div>
               <div className='card'>
                 R${item.price}
               </div>
-              <div>
-                <label>
-                  <input type='radio' value='options'>{item.options ?
-                    (item.options.map(options =>
-                      <p>{options}</p>))
-                    : null
-                  }
-                  </input>
-                </label>
-              </div>
-              <label>
-                <div> <input type='rado' value='extras'>{item.extras ?
-                  (item.extras.map(extras =>
-                    <p>{extras}</p>))
-                  : null
-                }
-                </input>
-                </div>
-              </label>
             </Card>
           )}
         </div>
