@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, css } from 'aphrodite'
+import { StyleSheet, css } from 'aphrodite';
 
 
 const Input = (props) => (
@@ -14,6 +14,7 @@ const Input = (props) => (
 )
 
 const styles = StyleSheet.create({
+   
    input: {
       margin: '2%',
       padding: '5px',

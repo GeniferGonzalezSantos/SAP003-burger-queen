@@ -5,7 +5,7 @@ const Card = (props) => (
     <>
     <section
     onClick={props.onClick}
-    className={css(styles.card)}
+    className={css(styles.card)} 
     >{props.children}</section>
     </>
 )

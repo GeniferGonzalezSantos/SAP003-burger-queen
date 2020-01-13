@@ -21,7 +21,6 @@ body {
   
 }
 
-<<<<<<< HEAD
 .container-aside {
   border: none;
   border-radius: 10px;
@@ -48,38 +47,5 @@ body {
 
 .btn {
   display: flex;
-=======
-  .input {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end; 
-    margin: 2%;
-    padding: initial;
-  }
-
-  .showOrder {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content:space-around;
-    flex-direction: row;
-  }
-
-  .p {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 2%;
-    font-size: 1.5em;
-  }
-
-  
-
-  .btn {
-    display: flex;
-  
-  }
->>>>>>> 4ec6f586f9331a01b7b4c72e716f91de72412ac1
 
 }
