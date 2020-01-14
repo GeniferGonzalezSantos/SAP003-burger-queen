@@ -5,7 +5,7 @@ const Order = (props) => (
     <>
     <section
     onClick={props.onClick}
-    className={css(styles.order)}></section>
+    className={css(styles.order,focus)}></section>
     </>
 )
 

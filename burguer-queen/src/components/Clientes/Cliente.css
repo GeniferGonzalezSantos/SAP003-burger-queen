@@ -4,31 +4,45 @@ body {
 }
 
 .card-container {
+  width: 51vw;
+  height: 23vh;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  /* display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   margin: 1px;
-  height: 2%;
-  position: fixed;
+  height: 2%; */
+  /* position: fixed; */
    
 }
-
+.article {
+ width: 50%;
+ float: left;
+}
 .aside {
-  width: 95%;
-  box-sizing: border-box;
-  margin: 35% 2% 2% 2%;
-  
+
+display: flex;
+justify-content: flex-end;  
 }
 
 .container-aside {
-  border: none;
+
+  background-Color: #c5350d;
+  width: 30vw;
+  height: 43vh;
+  border-radius: 15px;
+  padding: 10px;
+  /* border: none;
   border-radius: 10px;
   width: 100%;
   background-color: #c5350d;
   display: flex;
   flex-direction: column;
-  
+   */
 }
 
 .input {
@@ -40,6 +54,11 @@ body {
   padding: initial;
 }
 
+.map{
+display: flex;
+flex-direction: row;
+}
+
 .p {
   margin: 5px; 
   font-size: 1.5em;
@@ -49,3 +68,29 @@ body {
   display: flex;
 
 }
+
+.s-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 25%;
+  height: 15%;
+  border-radius: 10px;
+  background-color: #c5350ddc;
+  margin-top:15%;
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  padding: 5% 5% 10% 5%;
+
+}
+
+.s-options div div {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+
+

@@ -13,7 +13,7 @@ const Card = (props) => (
 const styles = StyleSheet.create({
     card : {
        margin: '2%',
-       padding: '2%',
+       padding: '7%',
        height: '15%',
        width:'20%',
        border: 'solid',

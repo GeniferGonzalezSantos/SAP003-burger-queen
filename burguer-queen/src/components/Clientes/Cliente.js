@@ -7,6 +7,7 @@ import Modal from '../modal';
 import Input from '../input';
 import './Cliente.css';
 
+
 function TakeOrder() {
   const [dados, setDados] = useState([]);
   const [item, setItem] = useState([]);
@@ -135,7 +136,7 @@ function TakeOrder() {
           />
         </div>
       </main>
-      <article >
+      <article className='article' >
         <div key={dados.id} className='card-container'>
           {item.map((item) =>
             <Card
@@ -152,7 +153,7 @@ function TakeOrder() {
           )}
         </div>
         {modal.status ? (
-          <section>
+          <section className='s-options'>
             <div>
               <h3>Opções</h3>
               {modal.item.options.map((element, index) =>
@@ -170,7 +171,7 @@ function TakeOrder() {
                   <label>{element}</label>
                 </div>
               )}
-              <Input type='button' onClick={() => selectOptions()} title="Enviar" />
+              <Button  onClick={() => selectOptions()} title='Enviar' className='btn-options' />
             </div>
           </section>
         ) : false}
@@ -178,7 +179,7 @@ function TakeOrder() {
       <aside className='aside'>
         <form className='container-aside'>
           <div className='input'>
-            <div >
+            <div className='map' >
               {order.map(item => <p key={item.id}>
                 {item.count}x{item.name}
                 R${item.price}
