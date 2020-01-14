@@ -44,19 +44,19 @@ São 2 menus. Um de café da manhã
 
 ## 3. Funcionalidade do Projeto
 
-Filtrar os Menus entre café da manhã e resto do dia;
-Selecionar os itens para fazer o pedido;
-Nos hambúrgueres há a possibilidade de escolher extras e opções;
-Uma vez que esses itens são adicionados ao pedido, também são adicionados o nome e mesa do cliente;
-Adiciona os itens;
-Conforme os itens são adicionados, eles também são somados no total da conta;
-Por fim, envia o pedido para o banco de dados e logo para a cozinha.
+- Filtrar os Menus entre café da manhã e resto do dia
+- Selecionar os itens para fazer o pedido;
+- Nos hambúrgueres há a possibilidade de escolher extras e opções;
+- Uma vez que esses itens são adicionados ao pedido, também são adicionados o nome e mesa do cliente;
+- Adiciona os itens;
+- Conforme os itens são adicionados, eles também são somados no total da conta;
+- Por fim, envia o pedido para o banco de dados e logo para a cozinha.
 
 
 ## 4.Tecnologias utilizadas:
 
-JavaScript (ES6);
-React Hooks;
-React Router Dom;
-Aphrodite;
-Firebase;
+- JavaScript (ES6);
+- React Hooks;
+- React Router Dom;
+- Aphrodite;
+- Firebase;
