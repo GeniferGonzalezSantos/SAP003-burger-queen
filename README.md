@@ -16,9 +16,9 @@ O projeto tem como objetivo desenvolver uma interface para facilitar e agilizar 
 
 ## 2. Sobre os menus
 
-São 2 menus. Um de café da manhã e outro para o resto do dia.
+São 2 menus. Um de café da manhã 
 
-| Ítem                      |Preço R$|
+>| Ítem                      |Preço R$|
 >|---------------------------|------|
 >| Café americano            |    5 |
 >| Café com leite            |    7 |
