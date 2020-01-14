@@ -11,7 +11,6 @@ import {
 } from "react-router-dom";
 
 
-
 function App() {
   return (
     <div>
@@ -26,11 +25,10 @@ function App() {
               <Link to="/cozinha" className={css(styles.a)}>Cozinha</Link>
             </li>
           </ul>
-
         </nav>
         <Switch>
           <Route path="/cozinha">
-            <div>peraí</div>
+          <div>'Opa, em breve haverá novidades!'</div>
           </Route>
           <Route path="/">
             <TakeOrder/>

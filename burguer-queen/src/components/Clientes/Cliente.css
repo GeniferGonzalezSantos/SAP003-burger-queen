@@ -44,7 +44,7 @@ body {
 .map {
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: center;
 width: 30vw;
 height: 40vh;
 overflow: scroll;

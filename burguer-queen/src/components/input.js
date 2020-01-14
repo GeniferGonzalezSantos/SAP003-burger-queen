@@ -7,15 +7,15 @@ const Input = (props) => (
       <input
          type={props.type}
          onClick={props.onClick}
-         className={css(styles.input)} 
+         className={css(styles.input)}
          name={props.name}
-         placeholder={props.placeholder} 
-         title={props.title}/>
+         placeholder={props.placeholder}
+         title={props.title} />
    </>
 )
 
 const styles = StyleSheet.create({
-   
+
    input: {
       margin: '2%',
       padding: '5px',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-     
+
    },
 
 });

@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Burger Queen
 
-## Available Scripts
+## Índice
 
-In the project directory, you can run:
+* [1. Resumo](#1-resumo)
+* [2. Sobre os menus](#2-sobre-os-menus)
+* [3. Funcionalidades do projeto](#3-funcionalidade-do-projeto)
+* [4. Tecnologias utilizadas](#4-tecnologias-utilizadas)
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+***
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 1. Resumo
 
-### `npm test`
+O projeto tem como objetivo desenvolver uma interface para facilitar e agilizar o trabalho dos colaboradores de um restaurante. Em primeiro lugar, uma interface para que os garçons possam fazer os pedidos no salão e enviar para a cozinha. Em segundo lugar, uma interface para que o cozinheiro possa ver esses pedidos na ordem que foram feitos e finalizar o pedido. Em terceiro lugar, uma interface para que os gaçons possam ver o pedido finalizado na cozinha. Em resumo, são 3 histórias de usuário.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. Sobre os menus
 
-### `npm run build`
+São 2 menus. Um de café da manhã e outro para o resto do dia.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Ítem                      |Preço R$|
+>|---------------------------|------|
+>| Café americano            |    5 |
+>| Café com leite            |    7 |
+>| Misto Quente              |   10 |
+>| Suco de fruta natural     |    7 |
+>
+>E outro menu para o resto do dia:
+>
+>| Ítem                      |Preço |
+>|---------------------------|------|
+>|**Hambúrgueres**           |   **R$**   |
+>|Hambúrguer simples         |    10|
+>|Hambúrguer duplo           |    15|
+>|**Acompanhamentos**        |   **R$**   |
+>|Batata frita               |     5|
+>|Anéis de cebola            |     5|
+>|**Bebidas**                |   **R$**   |
+>|Água 500ml                 |     5|
+>|Água 750ml                 |     7|
+>|Refrigerante 500ml         |     7|
+>|Refrigerante 750ml         |    10|
+>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## 3. Funcionalidade do Projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Filtrar os Menus entre café da manhã e resto do dia;
+Selecionar os itens para fazer o pedido;
+Nos hambúrgueres há a possibilidade de escolher extras e opções;
+Uma vez que esses itens são adicionados ao pedido, também são adicionados o nome e mesa do cliente;
+Adiciona os itens;
+Conforme os itens são adicionados, eles também são somados no total da conta;
+Por fim, envia o pedido para o banco de dados e logo para a cozinha.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 4.Tecnologias utilizadas:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+JavaScript (ES6);
+React Hooks;
+React Router Dom;
+Aphrodite;
+Firebase;
