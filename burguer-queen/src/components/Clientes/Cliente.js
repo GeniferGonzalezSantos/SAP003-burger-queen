@@ -65,10 +65,6 @@ function TakeOrder() {
       setCounter(delPrice);
     }
   }
-  /*  setCounter(counter + item.price);  
-   const addItem = (item.id * '') ? true : false;
-   const multiplication = item.price * addItem;
-   return console.log(setCounter + multiplication); */
 
   const sendOrder = () => {
     db.collection('Pedidos')
@@ -76,7 +72,6 @@ function TakeOrder() {
         clientName: cliente,
         table: table,
         order: order,
-        //bill: bill,
         status: 'Pendente',
         time: firebase.firestore.FieldValue.serverTimestamp()
       })
@@ -171,7 +166,7 @@ function TakeOrder() {
                   <label>{element}</label>
                 </div>
               )}
-              <Button  onClick={() => selectOptions()} title='Enviar' className='btn-options' />
+              <Button onClick={() => selectOptions()}>Selecionar</Button>
             </div>
           </section>
         ) : false}
@@ -179,15 +174,7 @@ function TakeOrder() {
       <aside className='aside'>
         <form className='container-aside'>
           <div className='input'>
-            <div className='map' >
-              {order.map(item => <p key={item.id}>
-                {item.count}x{item.name}
-                R${item.price}
-                <Button onClick={(e) => (e.preventDefault(), deleteItem(item))} children={'X'} />
-              </p>
-              )}
-              <p> Total: R$  {counter}  </p>
-            </div>
+            
             <Input
               placeholder='Cliente'
               onChange={(event) =>
@@ -196,11 +183,24 @@ function TakeOrder() {
               placeholder='Mesa'
               onChange={(event) =>
                 setTable(event.target.value)} />
-            <p className='p'>{cliente}</p>
-            <p className='p'>{table}</p>
-            <Button
-              type='button' children='Enviar' onClick={sendOrder} />
+            {/* <p className='p'>{cliente}</p>
+            <p className='p'>{table}</p> */}
           </div>
+          <div className='map' >
+              {order.map(item => <p key={item.id}>
+                {item.count} x {item.name} 
+                R$ {item.price}
+                <button  className='btn-map' onClick={(e) => (e.preventDefault(), deleteItem(item))} children={'X'} />
+              </p>
+              
+                
+              )}
+            </div>
+            <div className='div-enviar'>
+              <p> Total: R$  {counter}  </p>
+              <Button
+              type='button' children='Enviar' onClick={(e) => (e.preventDefault(), sendOrder())} />            
+              </div>
         </form>
       </aside>
     </>

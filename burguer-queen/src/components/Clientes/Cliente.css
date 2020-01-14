@@ -10,58 +10,53 @@ body {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  /* display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  margin: 1px;
-  height: 2%; */
-  /* position: fixed; */
-   
 }
+
 .article {
  width: 50%;
  float: left;
 }
-.aside {
 
-display: flex;
-justify-content: flex-end;  
+.aside {
+  display: flex;
+  justify-content: flex-end; 
+
 }
 
 .container-aside {
-
   background-Color: #c5350d;
   width: 30vw;
-  height: 43vh;
+  height: 60vh;
   border-radius: 15px;
   padding: 10px;
-  /* border: none;
-  border-radius: 10px;
-  width: 100%;
-  background-color: #c5350d;
-  display: flex;
-  flex-direction: column;
-   */
+  margin-right: 10%;    
+  
 }
 
 .input {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin: 2%;
-  padding: initial;
+  justify-content: flex-start;
+  align-items: flex-start;
+ 
 }
 
-.map{
+.map {
 display: flex;
-flex-direction: row;
+flex-direction: column;
+justify-content: space-between;
+width: 30vw;
+height: 40vh;
+overflow: scroll;
 }
 
-.p {
-  margin: 5px; 
-  font-size: 1.5em;
+.btn-map{
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: #00B383;
+  background-color: #00B383;
+  color: #c5350d;
+  margin: 5px;
 }
 
 .btn {
@@ -90,7 +85,16 @@ flex-direction: row;
   display: flex;
   flex-direction: row;
   margin-bottom: 5px;
+
 }
 
+.div-enviar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+ 
+
+
+}
 
 
