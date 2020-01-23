@@ -108,6 +108,8 @@ function TakeOrder() {
 
   }
 
+  console.log(table)
+
   return (
     <>
       <main>

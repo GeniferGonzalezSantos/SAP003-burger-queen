@@ -10,7 +10,8 @@ const Input = (props) => (
          className={css(styles.input)}
          name={props.name}
          placeholder={props.placeholder}
-         title={props.title} />
+         title={props.title}
+         onChange={props.onChange} />
    </>
 )
 
