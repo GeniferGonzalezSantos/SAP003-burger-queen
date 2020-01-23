@@ -2,18 +2,11 @@ import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
 const Card = (props) => (
-    <>
-        <section
+    <section
+        onClick={props.onClick}
+        className={css(styles.card)}>
+        {props.children}</section>
 
-            onClick={props.onClick}
-            className={css(styles.card)}
-        >{props.children}
-        <p>{props.clientName}</p>
-        <p>{props.table}</p>
-        <p>{props.status}</p>
-        <p>{props.time}</p>
-        </section>
-    </>
 )
 
 const styles = StyleSheet.create({

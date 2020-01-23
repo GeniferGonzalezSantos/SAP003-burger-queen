@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { db } from './firebase.js';
-import Card from './components/card'
+import Card from './components/card';
 
 function SeeOrder() {
+
     const [pendent, setPendent] = useState([]);
 
 
@@ -15,19 +16,25 @@ function SeeOrder() {
                 }))
                 setPendent(getOrder);
             })
-    });
+        });
+        
+    
 
     return (
         <main>
             {pendent.map((order) =>
+            
                 <Card >
                     key={order.id}
                     clientName={order.clientName}
                     table={order.table}
-                    order={order.order}
+                    order={order.order.map(item => (
+                        <p>{item.name}</p>
+                    ))}
                     status={order.status}
                     time={order.time}
-                </Card>)}
+               </Card>
+               )}
 
 
         </main>
