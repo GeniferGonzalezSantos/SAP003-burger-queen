@@ -1,6 +1,6 @@
 import React from 'react';
-import TakeOrder from './components/Clientes/Cliente';
-import SeeOrder from './Cozinha'
+import TakeOrder from './pages/Cliente';
+import SeeOrder from './pages/Cozinha'
 import { StyleSheet, css } from 'aphrodite';
 import { reset } from 'aphrodite';
 import logo from './imagens/logo.png';
