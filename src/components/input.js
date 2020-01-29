@@ -16,7 +16,7 @@ const Input = (props) => (
 )
 
 const styles = StyleSheet.create({
-
+   
    input: {
       margin: '2%',
       padding: '5px',
