@@ -1,8 +1,7 @@
 import React from 'react';
-import TakeOrder from './components/Clientes/Cliente';
-import SeeOrder from './Cozinha'
+import TakeOrder from './pages/Cliente';
+import SeeOrder from './pages/Cozinha'
 import { StyleSheet, css } from 'aphrodite';
-import { reset } from 'aphrodite';
 import logo from './imagens/logo.png';
 import {
   BrowserRouter as Router,
@@ -42,6 +41,7 @@ function App() {
 }
 
 const styles = StyleSheet.create({
+ 
   nav: {
     width: '100%',
     backgroundColor: '#c5350d',
@@ -86,7 +86,5 @@ const styles = StyleSheet.create({
   }
 
 });
-
-reset();
 
 export default App;

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../../firebase.js';
-import Card from '../card';
-import Button from '../button';
-import Input from '../input';
+import { db } from '../firebase.js';
+import Card from '../components/card';
+import Button from '../components/button';
+import Input from '../components/input';
 import './Cliente.css';
 
 
