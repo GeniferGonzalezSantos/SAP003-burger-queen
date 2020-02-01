@@ -7,7 +7,8 @@
     width: 51vw;
     height: 23vh;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: wrap;
+    flex-grow: 1;
     justify-content: flex-start;
     align-content: flex-start;
   }
@@ -20,7 +21,6 @@
   .aside {
     display: flex;
     justify-content: flex-end; 
-
   }
 
   .container-aside {
@@ -29,8 +29,7 @@
     height: 40vh;
     border-radius: 15px;
     padding: 10px;
-    margin-right: 10%;    
-    
+    margin-right: 10%;      
   }
 
   .input {
@@ -38,7 +37,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-  
   }
 
   .map {
@@ -61,7 +59,6 @@
 
   .btn {
     display: flex;
-
   }
 
   .s-options {
@@ -78,14 +75,12 @@
     top: 20px;
     left: 10px;
     padding: 5% 5% 10% 5%;
-
   }
 
   .s-options div div {
     display: flex;
     flex-direction: row;
     margin-bottom: 5px;
-
   }
 
   .div-enviar {
@@ -93,7 +88,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-   
   }
 
 
