@@ -18,9 +18,8 @@ function SeeOrder() {
     });
 
     return (
-        <main>
+        <main className={css(styles.main)}>
             {pendent.map((order) =>
-                <div className={css(styles.directionCard)}>
                     <CardKitchen key={order.id}>
                         <div>
                             <p>Nome: {order.clientName}</p>
@@ -29,27 +28,28 @@ function SeeOrder() {
                             {order.order.map(item => (
                                 <p>{item.name}</p>
                             ))}
-                            <p>Status: {order.status}
-                            </p>
-                               <p>Tempo: {order.time}</p>
-
+                            <p><b>Status:</b> {order.status}</p>
+                            <p><b>Tempo:</b> {order.time}</p>
                         </div>
                     </CardKitchen>
-                </div>
+               
             )}
         </main>
     )
 }
 
 const styles = StyleSheet.create({
-
-    directionCard: {
-        display: 'flex',
-        flexFlow: 'row-wrap',
-        flexGrow: '1',
-        margin: '0',
+    main: {
+        '@media (min-width: 1024px)': {
+            height:'30%',
+            display: 'flex',
+            flexFlow: 'row wrap',
+            flexGrow: '1',
+            alignContent: 'flex-start',
+            overflowY: 'scroll',
+        }     
     },
-   
+     
 });
 
 export default SeeOrder;

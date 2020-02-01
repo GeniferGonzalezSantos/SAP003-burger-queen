@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         fontFamily: 'Ubuntu, sans-serif',
         fontSize: '1em',
-        overflow: 'scroll',
     },
 });
 

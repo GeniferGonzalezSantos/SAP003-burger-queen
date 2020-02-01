@@ -10,11 +10,13 @@ const CardKitchen = (props) => (
 )
 
 const styles = StyleSheet.create({
+
     cardKitchen: {
-        margin: '1%',
+        '@media (min-width: 1024px)': {
+        margin: '5%',
         padding: '1%',
-        height: '10%',
-        width: '15%',
+        width: '18vw',
+        height: '18vh',
         border: 'solid',
         borderRadius: '5px',
         borderColor: '#00B383',
@@ -22,13 +24,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
         overflow: 'scroll',
+        }
     },
 
     p: {
         fontFamily: 'Ubuntu, sans-serif',
-        fontSize: '1em',
+        fontSize: '.8em',
         justifyContent: 'space-around',
-    }
+    },
 });
 
 export default CardKitchen;

@@ -13,7 +13,6 @@ import {
 
 function App() {
   return (
-    <div>
       <Router>
         <nav className={css(styles.nav)}>
           <img src={logo} alt='Logo Burguer Queen' className={css(styles.logo)} />
@@ -35,8 +34,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
-
   )
 }
 
@@ -81,6 +78,7 @@ const styles = StyleSheet.create({
     width: '100px',
     height: '100px',
     borderRadius: '50%',
+    margin:'1%',
   }
 });
 
