@@ -41,50 +41,47 @@ function App() {
 }
 
 const styles = StyleSheet.create({
- 
   nav: {
     width: '100%',
     backgroundColor: '#c5350d',
     height: '8vw',
     display: 'flex',
     justifyContent: 'flex-end',
-   
+    
   },
-
+  
   ul: {
-    margin: '0',
+    marginLeft:'15%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent:'flex-end',
     alignItems:'flex-end',
     fontFamily: 'Ubuntu, sans-serif',
   },
-
+  
   li: {
     listStyleType: 'none',
     margin: '0',
-
+    
   },
-
+  
   a: {
     color: '#00B383',
     textDecoration: 'none',
     fontSize: '2em',
     fontWeight: 'bold',
     marginInlineEnd: '20px', 
- 
+    
   },
-
+  
   logo: {
     display:'flex',
     alignItems:'center',
     justifyContent:'center',
     width: '100px',
     height: '100px',
-    margin:'1%',
     borderRadius: '50%',
   }
-
 });
 
 export default App;

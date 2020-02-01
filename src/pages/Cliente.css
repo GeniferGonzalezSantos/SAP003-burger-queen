@@ -1,3 +1,4 @@
+@media (min-width: 1024px) {
   body {
   margin: 0;
   background-color: #ff9a68; 
@@ -25,11 +26,12 @@
 
   .container-aside {
     background-Color: #c5350d;
-    width: 30vw;
-    height: 40vh;
+    width: 20vw;
+    height: 30vh;
     border-radius: 15px;
     padding: 10px;
-    margin-right: 10%;      
+    margin-right:5%;
+    margin-top: 0;     
   }
 
   .input {
@@ -44,7 +46,7 @@
   flex-direction: column;
   justify-content: center;
   width: 20vw;
-  height: 30vh;
+  height: 22vh;
   overflow: scroll;
   }
 
@@ -59,6 +61,7 @@
 
   .btn {
     display: flex;
+    width: 50%;
   }
 
   .s-options {
@@ -90,4 +93,4 @@
     justify-content: space-between;
   }
 
-
+}
