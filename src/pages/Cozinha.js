@@ -41,18 +41,18 @@ function SeeOrder() {
 const styles = StyleSheet.create({
     main: {
         '@media (min-width: 1024px)': {
-            height: '30%',
+            width:'100%',
             display: 'flex',
             flexFlow: 'row wrap',
             flexGrow: '1',
             alignContent: 'flex-start',
             overflowY: 'scroll',
         },
+    },
         divKitchen: {
             margin:'0',
             padding:'0',
         }
-    },
 
 });
 

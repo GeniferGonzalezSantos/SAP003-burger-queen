@@ -3,6 +3,11 @@
   margin: 0;
   background-color: #ff9a68; 
 }
+  .root{
+    margin: 0;
+    padding: 0;
+    
+  }
 
   .card-container {
     width: 51vw;
