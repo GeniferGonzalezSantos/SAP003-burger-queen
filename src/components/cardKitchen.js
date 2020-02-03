@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 
     cardKitchen: {
         '@media (min-width: 1024px)': {
-        margin: '5%',
+        margin: '2%',
         padding: '1%',
         width: '18vw',
         height: '18vh',
