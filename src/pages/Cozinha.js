@@ -19,10 +19,10 @@ function SeeOrder() {
             })
     });
 
-    const deleteCard = (id,collection) => {
+    const deleteCard = (id, collection) => {
         db.collection(collection)
-        .doc(id)
-        .delete()
+            .doc(id)
+            .delete()
     }
 
 
@@ -36,10 +36,10 @@ function SeeOrder() {
                         <h3>Pedidos:</h3>
                         {order.order.map(item => (
                             <p>{item.name}</p>
-                            ))}
+                        ))}
                         <p><b>Status:</b> {order.status}</p>
                         <p><b>Tempo:</b> {order.time}</p>
-                        <Button className='btn-map' onClick={(e) => (e.preventDefault(), deleteCard(order.id, 'Pedidos'))} children={'Pedido feito'} />
+                        <Button className={css(styles.btnDelete)} onClick={(e) => (e.preventDefault(), deleteCard(order.id, 'Pedidos'))} children={'Pedido feito'} />
                     </div>
                 </CardKitchen>
 
@@ -51,18 +51,25 @@ function SeeOrder() {
 const styles = StyleSheet.create({
     main: {
         '@media (min-width: 1024px)': {
-            width:'100%',
+            width: '100%',
             display: 'flex',
-            flexFlow: 'row wrap',
-            flexGrow: '1',
+            flexWrap:'wrap',
+            flexDirection: 'row',
             alignContent: 'flex-start',
-            overflowY: 'scroll',
+            alignItems: 'center',
         },
     },
-        divKitchen: {
-            margin:'0',
-            padding:'0',
-        }
+    divKitchen: {
+        margin: '0',
+        padding: '0',
+        height: 'inherit',
+
+    },
+
+    btnDelete: {
+        display: 'flex',
+        alignItems: 'baseline',
+    }
 
 });
 
