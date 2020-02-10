@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { StyleSheet, css } from 'aphrodite';
+import Button from '../components/button'
 import CardKitchen from '../components/cardKitchen';
 
 function SeeOrder() {
     const [pendent, setPendent] = useState([]);
+
 
     useEffect(() => {
         db.collection('Pedidos')
@@ -17,6 +19,13 @@ function SeeOrder() {
             })
     });
 
+    const deleteCard = (id,collection) => {
+        db.collection(collection)
+        .doc(id)
+        .delete()
+    }
+
+
     return (
         <main className={css(styles.main)}>
             {pendent.map((order) =>
@@ -27,9 +36,10 @@ function SeeOrder() {
                         <h3>Pedidos:</h3>
                         {order.order.map(item => (
                             <p>{item.name}</p>
-                        ))}
+                            ))}
                         <p><b>Status:</b> {order.status}</p>
                         <p><b>Tempo:</b> {order.time}</p>
+                        <Button className='btn-map' onClick={(e) => (e.preventDefault(), deleteCard(order.id, 'Pedidos'))} children={'Pedido feito'} />
                     </div>
                 </CardKitchen>
 

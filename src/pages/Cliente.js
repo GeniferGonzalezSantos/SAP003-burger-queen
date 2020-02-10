@@ -46,6 +46,7 @@ function TakeOrder() {
       setOrder([...order, item]);
     }
     setCounter(+(counter + item.price));
+    console.log(counter)
   }
 
   const deleteItem = (item) => {
